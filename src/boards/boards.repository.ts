@@ -7,11 +7,8 @@ import { CreateBoardDto } from "./dto/boards.dto";
 export class BoardsRepository {
     private boards: Board[] = [];
 
-    getAllBoards() {
-        return this.boards;
-    }
-
-    createBoard(data: CreateBoardDto) {
+    //create
+    createBoard(data: CreateBoardDto): Board {
         const { title, description } = data;
         const board: Board = {
             id: uuid(),
@@ -22,5 +19,21 @@ export class BoardsRepository {
         this.boards.push(board);
 
         return board;
+    }
+
+    //read
+    getAllBoards() {
+        return this.boards;
+    }
+
+    getBoardById(id: string): Board {
+        return this.boards.find((board) => board.id === id);
+    }
+
+    //update
+
+    //delete
+    deleteBoard(id: string): void {
+        this.boards = this.boards.filter((board) => board.id !== id);
     }
 }
