@@ -2,7 +2,6 @@ import { Body, Controller, Delete, Get, Param, Patch, Post, UsePipes, Validation
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/boards.dto';
 import { Board, BoardStatus } from './boards.model';
-import { stat } from 'fs';
 
 @Controller('boards')
 export class BoardsController {
